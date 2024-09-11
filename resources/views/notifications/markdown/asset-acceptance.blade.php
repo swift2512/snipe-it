@@ -31,6 +31,9 @@
 @if (isset($item_serial))
 | **{{ trans('mail.serial') }}** | {{ $item_serial }} |
 @endif
+@if (isset($user->location))
+| **{{ trans('general.location') }}** | {{ $user->location->name }} |
+@endif
 @endcomponent
 
 {{ trans('mail.best_regards') }}
