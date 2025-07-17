@@ -78,7 +78,10 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#info" data-toggle="tab">{{ trans('general.information') }} </a></li>
+	@if (!Auth::user()->hasAccess('admin'))
+	@else
           <li><a href="#permissions" data-toggle="tab">{{ trans('general.permissions') }} </a></li>
+	@endif
         </ul>
 
         <div class="tab-content">
@@ -551,7 +554,8 @@
               </div> <!--/col-md-12-->
             </div>
           </div><!-- /.tab-pane -->
-
+	@if (!Auth::user()->hasAccess('admin'))
+	@else
           <div class="tab-pane" id="permissions">
             <div class="col-md-12">
               @if (!Auth::user()->isSuperUser())
@@ -575,6 +579,7 @@
                 @include('partials.forms.edit.permissions-base')
             </table>
           </div><!-- /.tab-pane -->
+	@endif														
         </div><!-- /.tab-content -->
           <x-redirect_submit_options
                   index_route="users.index"
