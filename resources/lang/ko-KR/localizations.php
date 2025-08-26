@@ -2,7 +2,7 @@
 
 return [
 
-    'select_language' => 'Select a Language',
+    'select_language' => '언어선택',
     'languages' => [
         'en-US'=> 'English, US',
         'en-GB'=> 'English, UK',
@@ -33,15 +33,15 @@ return [
         'it-IT'=> 'Italian',
         'ja-JP'=> 'Japanese',
         'km-KH'=>'Khmer',
-        'ko-KR'=> 'Korean',
+        'ko-KR'=> '한국어',
         'lt-LT'=>'Lithuanian',
         'lv-LV'=> 'Latvian',
         'mk-MK'=> 'Macedonian',
         'ms-MY'=> 'Malay',
         'mi-NZ'=> 'Maori',
         'mn-MN'=> 'Mongolian',
-        //'no-NO'=> 'Norwegian',
         'nb-NO'=> 'Norwegian Bokmål',
+        'om-ET' => 'Oromo (Ethiopian)',
         //'nn-NO'=> 'Norwegian Nynorsk',
         'fa-IR'=> 'Persian',
         'pl-PL'=> 'Polish',

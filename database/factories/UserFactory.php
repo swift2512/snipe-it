@@ -7,6 +7,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use \Auth;
 
+/**
+ * @extends Factory<User>
+ */
 class UserFactory extends Factory
 {
     /**
@@ -32,9 +35,11 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'permissions' => '{}',
             'phone' => $this->faker->phoneNumber(),
+            'mobile' => $this->faker->phoneNumber(),
             'state' => $this->faker->stateAbbr(),
             'username' => $this->faker->unique()->username(),
             'zip' => $this->faker->postcode(),
+            'created_by' => 1,
         ];
     }
 
@@ -141,6 +146,16 @@ class UserFactory extends Factory
         return $this->appendPermission(['assets.view.requestable' => '1']);
     }
 
+    public function deleteAssetModels()
+    {
+        return $this->appendPermission(['models.delete' => '1']);
+    }
+
+    public function viewAssetModels()
+    {
+        return $this->appendPermission(['models.view' => '1']);
+    }
+
     public function viewAccessories()
     {
         return $this->appendPermission(['accessories.view' => '1']);
@@ -201,6 +216,11 @@ class UserFactory extends Factory
         return $this->appendPermission(['consumables.checkout' => '1']);
     }
 
+    public function deleteDepartments()
+    {
+        return $this->appendPermission(['departments.delete' => '1']);
+    }
+
     public function viewDepartments()
     {
         return $this->appendPermission(['departments.view' => '1']);
@@ -241,11 +261,6 @@ class UserFactory extends Factory
         return $this->appendPermission(['components.view' => '1']);
     }
 
-    public function createCompanies()
-    {
-        return $this->appendPermission(['companies.create' => '1']);
-    }
-
     public function createComponents()
     {
         return $this->appendPermission(['components.create' => '1']);
@@ -271,6 +286,26 @@ class UserFactory extends Factory
         return $this->appendPermission(['components.checkout' => '1']);
     }
 
+    public function viewCompanies()
+    {
+        return $this->appendPermission(['companies.view' => '1']);
+    }
+
+    public function createCompanies()
+    {
+        return $this->appendPermission(['companies.create' => '1']);
+    }
+
+    public function deleteCompanies()
+    {
+        return $this->appendPermission(['companies.delete' => '1']);
+    }
+
+    public function editCompanies()
+    {
+        return $this->appendPermission(['companies.edit' => '1']);
+    }
+
     public function viewUsers()
     {
         return $this->appendPermission(['users.view' => '1']);
@@ -291,6 +326,16 @@ class UserFactory extends Factory
         return $this->appendPermission(['users.delete' => '1']);
     }
 
+    public function deleteCategories()
+    {
+        return $this->appendPermission(['categories.delete' => '1']);
+    }
+
+    public function deleteLocations()
+    {
+        return $this->appendPermission(['locations.delete' => '1']);
+    }
+
     public function canEditOwnLocation()
     {
         return $this->appendPermission(['self.edit_location' => '1']);
@@ -305,6 +350,63 @@ class UserFactory extends Factory
     {
         return $this->appendPermission(['import' => '1']);
     }
+
+    public function createCustomFields()
+    {
+        return $this->appendPermission(['customfields.create' => '1']);
+    }
+
+    public function viewCustomFields()
+    {
+        return $this->appendPermission(['customfields.view' => '1']);
+    }
+
+
+    public function deleteCustomFields()
+    {
+        return $this->appendPermission(['customfields.delete' => '1']);
+    }
+
+    public function deleteCustomFieldsets()
+    {
+        return $this->appendPermission(['customfields.delete' => '1']);
+    }
+
+    public function deleteDepreciations()
+    {
+        return $this->appendPermission(['depreciations.delete' => '1']);
+    }
+
+    public function deleteManufacturers()
+    {
+        return $this->appendPermission(['manufacturers.delete' => '1']);
+    }
+
+    public function deletePredefinedKits()
+    {
+        return $this->appendPermission(['kits.delete' => '1']);
+    }
+
+    public function viewPredefinedKits()
+    {
+        return $this->appendPermission(['kits.view' => '1']);
+    }
+
+    public function deleteStatusLabels()
+    {
+        return $this->appendPermission(['statuslabels.delete' => '1']);
+    }
+
+    public function deleteSuppliers()
+    {
+        return $this->appendPermission(['suppliers.delete' => '1']);
+    }
+
+    public function auditAssets()
+    {
+        return $this->appendPermission(['assets.audit' => '1']);
+    }
+
 
     private function appendPermission(array $permission)
     {
