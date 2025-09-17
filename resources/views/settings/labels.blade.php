@@ -304,7 +304,7 @@
                                         :options="['hardware_id'=>'/hardware/{id} ('.trans('admin/settings/general.default').')',
                                                    'ht_tag'=>'/ht/{asset_tag}',
                                                    'location' => '/location/{location_id}',
-                                                   'plain_asset_id'=>''.trans('admin/settings/general.asset_ids').'',
+                                                   'plain_asset_id'=>''.trans('admin/settings/general.asset_id').'',
                                                    'plain_asset_tag'=>''.trans('general.asset_tag').'',
                                                    'plain_serial_number'=>''.trans('general.serial_number').'',
                                                    ]"
